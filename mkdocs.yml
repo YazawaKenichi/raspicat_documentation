@@ -91,6 +91,7 @@ nav:
       - emcl2_ros2 : document/real_machine/set_up/emcl2_ros2.md
     - Basic Operation: 
       - 基本操作: document/real_machine/basic_operation/basic_operation.md
+      - やざわメモ: document/real_machine/basic_operation/yazawa_operation.md
     - Time Synchronization: 
       - 時刻同期: document/real_machine/time_synchronization/time_synchronization.md
     - Mapping: 

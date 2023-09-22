@@ -1,4 +1,23 @@
+# SSH でキャットにつなぐ（有線 LAN ）
+```
+source ~/.bashrc
+ssh ubuntu@$ETHERNET_IP
+```
+
 # マッピングからナビゲーションまで
+
+## IMU の立ち上げ方
+Raspberry piで実行
+terminal1で実行
+```
+ros2 run rt_usb_9axisimu_driver rt_usb_9axisimu_driver
+```
+
+terminal２で実行
+```
+ros2 lifecycle set rt_usb_9axisimu_driver configure
+ros2 lifecycle set rt_usb_9axisimu_driver activate
+```
 
 ## マップをとる
 Raspberry Piで実行

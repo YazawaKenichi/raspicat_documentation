@@ -7,6 +7,8 @@ ssh ubuntu@$ETHERNET_IP
 # マッピングからナビゲーションまで
 
 ## IMU の立ち上げ方
+LiDAR を先に刺してから IMU を刺す
+
 Raspberry piで実行
 terminal1で実行
 ```

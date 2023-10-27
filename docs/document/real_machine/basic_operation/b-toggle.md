@@ -13,10 +13,10 @@
 | ノートPC            | Raspberry Pi Cat（Raspberry Pi 4B+） | 
 | LANケーブル | Joystick Controller       | 
 
-## クローン
+## ブランチの切り替え
 ``` bash
-cd ~/raspicat2/src
-git clone https://github.com/yazawakenichi/raspicat_ros
+cd ~/raspicat2/src/raspicat_ros
+git checkout -b feat/B-toggle origin/feat/B-toggle
 ```
 
 ## ビルド

@@ -88,10 +88,9 @@ nav:
       - 有線LAN（Ethernet）: document/real_machine/set_up/wired.md
       - 無線LAN（Wi-Fi）: document/real_machine/set_up/wireless.md
       - Ethernet LiDAR の接続: document/real_machine/set_up/ethernet_lidar.md
-      - emcl2_ros2 : document/real_machine/set_up/emcl2_ros2.md
     - Basic Operation: 
       - 基本操作: document/real_machine/basic_operation/basic_operation.md
-      - やざわメモ: document/real_machine/basic_operation/yazawa_operation.md
+      - B-Toggle: document/real_machine/basic_operation/b-toggle.md
     - Time Synchronization: 
       - 時刻同期: document/real_machine/time_synchronization/time_synchronization.md
     - Mapping: 
@@ -99,6 +98,9 @@ nav:
     - Navigation:
       - ナビゲーション: document/real_machine/navigation/navigation.md
       - WayPoints YAML: document/real_machine/navigation/waypoint_load_save.md
+      - emcl2_ros2 : document/real_machine/navigation/emcl2_ros2.md
+    - Dead Brain:
+      - たまチーム: document/real_machine/dead_brain/tama.md
 
 - Repository: 
   - Raspberry Pi Cat関連のリポジトリ: repository/repository.md

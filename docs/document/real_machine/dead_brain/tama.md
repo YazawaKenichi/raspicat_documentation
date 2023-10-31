@@ -4,24 +4,12 @@ source ~/.bashrc
 ssh ubuntu@$ETHERNET_IP
 ```
 
-# マッピングからナビゲーションまで
+# USB 指す順番
+1. Serial LiDAR
+2. IMU
+3. JoyCon
 
-## IMU の立ち上げ方
-LiDAR を先に刺してから IMU を刺す
-
-Raspberry piで実行
-terminal1で実行
-```
-ros2 run rt_usb_9axisimu_driver rt_usb_9axisimu_driver
-```
-
-terminal２で実行
-```
-ros2 lifecycle set rt_usb_9axisimu_driver configure
-ros2 lifecycle set rt_usb_9axisimu_driver activate
-```
-
-## マップをとる
+# マップをとる
 Raspberry Piで実行
 ```
 ros2 launch raspicat raspicat.launch.py
@@ -36,14 +24,14 @@ ros2 launch raspicat_bringup teleop.launch.py teleop:=joy
 ros2 bag record -a
 ```
 
-### 取得したrosbagをノートPCに移動(PC側)(無線Ver)
+## 取得したrosbagをノートPCに移動(PC側)(無線Ver)
 ```
 sudo scp -r ubuntu@192.168.12.1:~/取ったrosbagのディレクトリ名 ~/
 ```
 
 #### USBで別のPCに
 
-## マップ作成（別のPC）
+# マップ作成（別のPC）
 ```
 ros2 launch raspicat_slam raspicat_slam_toolbox.launch.py
 ```
@@ -58,26 +46,20 @@ ros2 run nav2_map_server map_saver_cli -f ~/つけたいマップの名前
 
 USBでマップをナビゲーションをするPC持って来る
 
-## マップを使う準備
+# 複数マップを使う準備
 ノートPCで実行
 ```
-cd ~raspicat2/src/raspicat_slam_navigation
+cd ~/raspicat2/src/raspicat_slam_navigation
 git switch feat/localization-and-navigation-map
 ```
-マップを以下のディレクトリに
-raspicat_slam/config/maps
-以下の２つのマップの絶対パスを使用するマップのものに変更
-ナビゲーションに使用するマップの絶対パス
-自己位置推定に使用するマップの絶対パス
 
-# ナビゲーション
 ## マップの保存先
-`~/raspicat2/raspicat_slam_navigation/raspicat_slam/config/maps`
+`~/raspicat2/src/raspicat_slam_navigation/raspicat_slam/config/maps`
 
 `.yaml` と `.pgm` を一緒に入れる。
 
 ## 二種類のマップを設定
-`~/raspicat2/raspicat_slam_navigation/raspicat_navigation/config/param/nav2.param.yaml`
+`~/raspicat2/src/raspicat_slam_navigation/raspicat_navigation/config/param/nav2.param.yaml`
 ```
 navigation_map_server:
     ros__parameters:
@@ -92,6 +74,7 @@ localization_map_server:
         yaml_filename: "/home/USER/raspicat2/src/raspicat_slam_navigation/raspicat_slam/config/maps/NAME.yaml"
 ```
 
+## ビルド
 ノートPCで実行
 
 ```
@@ -100,6 +83,7 @@ colcon build --packages-select raspicat_description emcl2 raspicat_setup_scripts
 . install/setup.bash 
 ```
 
+# ナビゲーション
 Raspberry Piで実行
 ```
 ros2 launch raspicat raspicat.launch.py

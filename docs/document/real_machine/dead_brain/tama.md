@@ -4,10 +4,12 @@ source ~/.bashrc
 ssh ubuntu@$ETHERNET_IP
 ```
 
-# USB 指す順番
-1. Serial LiDAR
-2. IMU
-3. JoyCon
+## USB 指し直しが必要
+
+# キャリブレーション
+```
+ros2 launch imu_calibration_data imu_c_data_launch.py
+```
 
 # マップをとる
 Raspberry Piで実行
@@ -84,6 +86,10 @@ colcon build --packages-select raspicat_description emcl2 raspicat_setup_scripts
 ```
 
 # ナビゲーション
+
+!!! Info
+    キャリブレーションした？？？
+
 Raspberry Piで実行
 ```
 ros2 launch raspicat raspicat.launch.py

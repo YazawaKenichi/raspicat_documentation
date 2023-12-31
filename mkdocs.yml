@@ -105,6 +105,8 @@ nav:
       - ウェイポイント ナビゲーション: document/real_machine/navigation/waypoint_navigation.md
     - Dead Brain:
       - たまチーム: document/real_machine/dead_brain/tama.md
+  - YAZAWA:
+    - 矢澤用ドキュメント: document/yazawa/main.md
 
 - Repository: 
   - Raspberry Pi Cat関連のリポジトリ: repository/repository.md
